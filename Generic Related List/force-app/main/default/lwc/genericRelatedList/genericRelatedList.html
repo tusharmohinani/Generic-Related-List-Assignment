@@ -1,0 +1,20 @@
+<template>
+    <!--showing the spinner while data is fetching-->
+    <template if:true={spinner}>
+        <lightning-spinner alternative-text="Loading..." variant="brand">
+        </lightning-spinner>
+    </template>
+    <!--lightning card in which data is showned in a table form-->
+    <lightning-card title="Generic Related List" icon-name="standard:record">
+        <!--in case there is any error-->
+        <template if:true={error}>
+            {error}
+        </template>
+        <!--in case there is no error-->
+        <template if:false={error}>
+            <!--lightning datatable to show the records-->
+            <lightning-datatable key-field="id" data={data} columns={columns} hide-checkbox-column>
+            </lightning-datatable>
+        </template>  
+    </lightning-card>
+</template>
